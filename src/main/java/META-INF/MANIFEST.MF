@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Class-Path: ebean-2.8.1.jar ormlite-core-4.48.jar bukkit-1.8.7-R0.1-SN
+ APSHOT.jar guava-17.0.jar bungeecord-chat-1.8-20150831.103101-88.jar 
+ ormlite-jdbc-4.48.jar spigot-api-1.8-R0.1-SNAPSHOT.jar persistence-ap
+ i-1.0.jar commons-lang-2.6.jar junit-4.10.jar craftbukkit-1.8.7-R0.1-
+ SNAPSHOT.jar hamcrest-core-1.1.jar gson-2.2.4.jar spigot-1.8.7-R0.1-S
+ NAPSHOT.jar snakeyaml-1.15.jar json-simple-1.1.1.jar xenojavautil-1.0
+ .jar
+

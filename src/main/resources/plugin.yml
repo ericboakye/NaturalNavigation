@@ -1,0 +1,13 @@
+name: ${project.artifactId}
+version: ${project.version}
+main: io.apollosoftware.naturalnavigation.NaturalNavigation
+author: apollosoftware
+website: www.apollosoftware.io
+description:
+         A project developed for and only requester. This project
+         was all made possible by the plugin developer and requester!
+
+permissions:
+   nav.start_game:
+     description: Gives access start game
+     default: op

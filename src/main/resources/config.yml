@@ -1,0 +1,257 @@
+# What worlds this plugin is enabled in. (Note: commands work everywhere.)
+worlds:
+  # When coords aren't specified or are relative, the player's coords will be adjusted according to the scales and min/max heights.
+  # If either of the scales are less than zero, they'll be teleported relative to the spawn location.
+  - name: world
+    title: the Overworld
+    scale: 1.0
+    min_height: 5.0
+    max_height: 255.0
+
+  - name: AdventureWorld
+    title: 'The adventure world'
+    scale: 0.125
+    min_height: 5.0
+    max_height: 255.0
+
+world_groups:
+  default:
+    title: "&aMain World"
+    icon: DIRT
+    worlds:
+    - world
+  adventure:
+    icon: DIRT
+    title: "&eAdventure World"
+    worlds:
+    - AdventureWorld
+
+# The item used to navigate.
+nav_tool: COMPASS
+preGameStateEnabled: true
+deadStateEnabled: true
+# Cannot be higher than [54]
+maximum_homes: 9
+
+auto_set_target:
+  # the player sets home.
+  on_sethome: true
+  # the player dies.
+  on_death: true
+
+# Database Connection Settings #
+databaseConnection:
+  uri: mysql://localhost:3306/nav
+  username: root
+  password: 123
+# Don't override WorldEdit behavior when in creative mode? #
+worldedit_tool_creative: true
+
+# -------------------------------
+# Settings for each type of menu.
+# -------------------------------
+# Submenu types:R
+# - WORLDS: Lists world-groups using any item as icons.
+# - HOMES: Lists available private homes using banners as icons.
+# - WARPS: Lists available public warps using any item as icons.
+# - PLAYERS: Lists online players using player heads as icons.
+# - RANDOM: Teleport to a random location.
+menus:
+  # Menu for the navigation tool.
+  normal:
+    enabled: true
+    submenus:
+      - type: WORLDS
+        title: "&5Worlds"
+        icon: EMERALD_BLOCK
+
+      - type: HOMES
+        title: "&2Homes"
+        icon: BED
+
+      - type: WARPS
+        title: "&5Warps"
+        icon: NETHER_STAR
+
+      - type: PLAYERS
+        title: "&3Players"
+        icon: SKULL_ITEM:3
+
+      - type: RANDOM
+        title: "&5Random TP"
+        icon: SAPLING
+  # Menu for players who just started and are in the pre-game state.
+  start:
+    enabled: true
+    submenus:
+      - type: WORLDS
+        title: "&5Worlds"
+        icon: EMERALD_BLOCK
+
+      - type: WARPS
+        title: "&5Warps"
+        icon: NETHER_STAR
+
+      - type: RANDOM
+        title: "&5Random TP"
+        icon: SAPLING
+
+      - type: PLAYERS
+        title: "&3Players"
+        icon: SKULL_ITEM:3
+
+  # Menu for choosing where to respawn after death.
+  death:
+    enabled: true
+    submenus:
+      - type: WORLDS
+        title: "&5Worlds"
+        icon: EMERALD_BLOCK
+
+      - type: HOMES
+        title: "&2Homes"
+        icon: BED
+
+      - type: PLAYERS
+        title: "&3Players"
+        icon: SKULL_ITEM:3
+
+      - type: RANDOM
+        title: "&5Random TP"
+        icon: SAPLING
+
+      - type: WARPS
+        title: "&5Warps"
+        icon: NETHER_STAR
+# Random TP & Biomes (pick highest block)
+randomtp:
+  # Minimum/maximum distance to tp from 0, 0 on the x and z axis
+  min_distance: 200  # Chunk: 12
+  max_distance: 5000 # Chunk: 416
+  # Timeout (in milliseconds)
+  timeout: 10000
+
+  danger_blocks:
+      - FIRE
+      - LAVA
+      - STATIONARY_LAVA
+      - CACTUS
+
+  # Coming soon #
+  biome_groups:
+    - title: "&7Anywhere"
+      icon: STONE
+      biomes: []
+    - title: "&eBirch Forest"
+      icon: SAPLING:2
+      biomes:
+        - BIRCH_FOREST
+        - BIRCH_FOREST_HILLS
+        - BIRCH_FOREST_HILLS_MOUNTAINS
+        - BIRCH_FOREST_MOUNTAINS
+
+    - title: "&3Cold Taiga"
+      icon: SNOW
+      biomes:
+        - COLD_TAIGA
+        - COLD_TAIGA_HILLS
+        - COLD_TAIGA_MOUNTAINS
+
+    - title: "&9Ocean"
+      icon: WATER_BUCKET
+      biomes:
+        - DEEP_OCEAN
+        - OCEAN
+
+    - title: "&6Desert"
+      icon: SAND
+      biomes:
+        - DESERT
+        - DESERT_HILLS
+        - DESERT_MOUNTAINS
+
+    - title: "&bExtreme Hills"
+      icon: EMERALD
+      biomes:
+        - EXTREME_HILLS
+        - EXTREME_HILLS_MOUNTAINS
+        - EXTREME_HILLS_PLUS
+        - EXTREME_HILLS_PLUS_MOUNTAINS
+
+    - title: "&dFlower Forest"
+      icon: RED_ROSE:2
+      biomes:
+        - FLOWER_FOREST
+
+    - title: "&aForest"
+      icon: SAPLING:0
+      biomes:
+        - FOREST
+        - FOREST_HILLS
+
+    - title: "&bIce Plains"
+      icon: ICE
+      biomes:
+        - ICE_MOUNTAINS
+        - ICE_PLAINS
+        - ICE_PLAINS_SPIKES
+
+    - title: "&2Jungle"
+      icon: SAPLING:3
+      biomes:
+        - JUNGLE
+        - JUNGLE_EDGE
+        - JUNGLE_EDGE_MOUNTAINS
+        - JUNGLE_HILLS
+        - JUNGLE_MOUNTAINS
+
+    - title: "&6Mega Taiga"
+      icon: DIRT:2
+      biomes:
+        - MEGA_SPRUCE_TAIGA
+        - MEGA_SPRUCE_TAIGA_HILLS
+        - MEGA_TAIGA
+        - MEGA_TAIGA_HILLS
+
+    - title: "&cMesa"
+      icon: HARD_CLAY
+      biomes:
+        - MESA
+        - MESA_BRYCE
+        - MESA_PLATEAU
+        - MESA_PLATEAU_FOREST
+        - MESA_PLATEAU_FOREST_MOUNTAINS
+        - MESA_PLATEAU_MOUNTAINS
+
+    - title: "&fPlains"
+      icon: LONG_GRASS
+      biomes:
+        - PLAINS
+        - SUNFLOWER_PLAINS
+
+    - title: "&2Roofed Forest"
+      icon: SAPLING:5
+      biomes:
+        - ROOFED_FOREST
+        - ROOFED_FOREST_MOUNTAINS
+
+    - title: "&6Savanna"
+      icon: SAPLING:4
+      biomes:
+        - SAVANNA
+        - SAVANNA_MOUNTAINS
+        - SAVANNA_PLATEAU
+        - SAVANNA_PLATEAU_MOUNTAINS
+
+    - title: "&3Swamp"
+      icon: WATER_LILY
+      biomes:
+        - SWAMPLAND
+        - SWAMPLAND_MOUNTAINS
+
+    - title: "&bTaiga"
+      icon: SAPLING:1
+      biomes:
+        - TAIGA
+        - TAIGA_HILLS
+        - TAIGA_MOUNTAINS
